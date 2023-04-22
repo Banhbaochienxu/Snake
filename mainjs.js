@@ -33,7 +33,7 @@ DrawBoard()
 class Snake {
     constructor(color){
         this.size = 2;
-        this.speed = 5;
+        this.speed = 8;
         this.color = color
         this.direction = 'right';
         
@@ -48,9 +48,10 @@ class Snake {
     fill(color){
         DrawSquare(this.x,this.y,color);
         if(this.x == this.foodX && this.y == this.foodY){
+            console.log(this.speed)
             score += 10
             this.size +=2;
-            this.randomApple()
+            this.randomApple()          
             document.querySelector('.score').innerText = score;
             if(score % 100 == 0){
                 this.speed++;
@@ -116,6 +117,11 @@ class Snake {
     randomApple(){
         this.foodY = Math.floor(Math.random() * ROW);
         this.foodX = Math.floor(Math.random() * COL);
+        for (let x of this.body) {
+            if(this.foodX == x[0] && this.foodY == x[1]){
+                this.randomApple()
+            }
+        }
         console.log(this.foodY,this.foodX)
         DrawSquare(this.foodX,this.foodY,'red');
     }
