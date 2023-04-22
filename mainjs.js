@@ -92,7 +92,7 @@ class Snake {
     }
     MoveRight(){  
         if(this.x > COL){
-            this.x = 0
+            this.x = -1
         }
         this.UnDraw();
         this.x ++;
@@ -100,7 +100,7 @@ class Snake {
     }
     MoveDown(){
         if(this.y > ROW){
-            this.y = 0
+            this.y = -1
         }
         this.UnDraw();
         this.y ++;
@@ -108,7 +108,7 @@ class Snake {
     }
     MoveUp(){
         if(this.y < 0){
-            this.y = ROW
+            this.y = ROW + 1
         }
         this.UnDraw();
         this.y --;
