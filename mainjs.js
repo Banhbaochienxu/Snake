@@ -33,7 +33,7 @@ DrawBoard()
 class Snake {
     constructor(color){
         this.size = 2;
-        this.speed = 5;
+        this.speed = 8;
         this.color = color
         this.direction = 'right';
         
