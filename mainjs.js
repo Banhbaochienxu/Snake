@@ -33,7 +33,7 @@ DrawBoard()
 class Snake {
     constructor(color){
         this.size = 2;
-        this.speed = 5;
+        this.speed = 10;
         this.color = color
         this.direction = 'right';
         
@@ -52,8 +52,8 @@ class Snake {
             this.size +=2;
             this.randomApple()          
             document.querySelector('.score').innerText = score;
-            if(score % 100 == 0){
-                this.speed++;
+            if(score % 100 == 0 && this.speed < 50){
+                this.speed += 2;
             }
         }
         if(color != COLOR){
